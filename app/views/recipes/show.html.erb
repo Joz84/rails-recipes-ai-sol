@@ -1,0 +1,19 @@
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+
+  <%= render @recipe %>
+
+  <div>
+    <%= simple_form_for [@recipe, @ingredient] do |f| %>
+      <%= f.input :title %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
+    <%= link_to "Back to recipes", recipes_path %>
+
+    <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+  </div>
+</div>

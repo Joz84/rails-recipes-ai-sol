@@ -1,0 +1,23 @@
+<div id="<%= dom_id recipe %>">
+  <h1>
+    <strong>Name:</strong>
+
+    <%= cl_image_tag recipe.photo.key, alt: "AI-generated image of the recipe" if recipe.photo.attached? %>
+
+
+    <%= recipe.name %>
+  </h1>
+
+  <h2>Description:</h2>
+  <p><%= recipe.content %></p>
+
+
+  <h2>Ingredients:</h2>
+  <ul>
+    <% recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient.title %> <%= link_to "destroy", ingredient, data: { "turbo-method": :delete }  %></li>
+    <% end %>
+  </ul>
+
+
+</div>
